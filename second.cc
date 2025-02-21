@@ -13,11 +13,11 @@
 
 // Default Network Topology
 //
-//       10.31.1.0
+//       10.1.1.0
 // n0 -------------- n1   n2   n3   n4
 //    point-to-point  |    |    |    |
 //                    ================
-//                      LAN 10.31.2.0
+//                      LAN 1.31.2.0
 
 using namespace ns3;
 
@@ -69,11 +69,11 @@ main(int argc, char* argv[])
     stack.Install(csmaNodes);
 
     Ipv4AddressHelper address;
-    address.SetBase("10.31.1.0", "255.255.255.0");
+    address.SetBase("10.1.1.0", "255.255.255.0");
     Ipv4InterfaceContainer p2pInterfaces;
     p2pInterfaces = address.Assign(p2pDevices);
 
-    address.SetBase("10.31.2.0", "255.255.255.0");
+    address.SetBase("10.1.2.0", "255.255.255.0");
     Ipv4InterfaceContainer csmaInterfaces;
     csmaInterfaces = address.Assign(csmaDevices);
 
@@ -94,7 +94,7 @@ main(int argc, char* argv[])
 
     Ipv4GlobalRoutingHelper::PopulateRoutingTables();
 
-    pointToPoint.EnablePcapAll("ICT313");
+    pointToPoint.EnablePcapAll("ICTXXX");
     csma.EnablePcap("csma", csmaDevices.Get(1), true);
     csma.EnablePcap("p2p",p2pDevices.Get(0),true);
     
