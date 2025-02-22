@@ -98,7 +98,7 @@ main(int argc, char* argv[])
     csma.EnablePcap("csma", csmaDevices.Get(1), true);
     csma.EnablePcap("p2p",p2pDevices.Get(0),true);
     
-    AnimationInterface anim("ICT313.xml");
+    AnimationInterface anim("ICTXXX.xml");
     anim.SetConstantPosition(p2pNodes.Get(0),10.0,10.0);
     anim.SetConstantPosition(p2pNodes.Get(1),30.0,20.0);
     anim.SetConstantPosition(csmaNodes.Get(1),80.0,30.0);
