@@ -1,0 +1,27 @@
+
+
+set terminal pdf
+set output "smartphones.pdf"
+
+set title "Smartphone Attributes"
+set ylabel "Price (USD)"
+set xlabel "Battery Capacity (mAh)"
+plot "SmartphoneData.txt" using 2:4 with lines title "Battery Capacity vs Price"
+
+set ylabel "Price (USD)"
+set xlabel "Screen Size (inches)"
+replot "SmartphoneData.txt" using 3:4 with linespoints title "Screen Size vs Price"
+
+
+set style data histogram
+set style histogram cluster gap 1
+set style fill solid border -1
+set boxwidth 0.8
+set xlabel "Smartphone Index"
+set ylabel "Price (USD)"
+set title "Price Distribution of Smartphones"
+plot "SmartphoneData.txt" using 4:xtic(1) title "Price Histogram"
+
+//////////
+
+gnuplot smartphones.plt
